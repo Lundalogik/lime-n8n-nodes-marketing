@@ -1,6 +1,5 @@
-import { ILoadOptionsFunctions, ResourceMapperFields } from 'n8n-workflow';
+import { ILoadOptionsFunctions, ResourceMapperFields, LoggerProxy as Logger } from 'n8n-workflow';
 import { limeMarketingRequest } from '../transport';
-import { LoggerProxy as Logger } from 'n8n-workflow';
 
 type TemplateVariablesResponse = {
 	RecipientVariables?: { Property: string; RawValue: string }[];

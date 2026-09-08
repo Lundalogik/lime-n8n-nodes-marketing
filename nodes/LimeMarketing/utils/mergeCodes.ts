@@ -91,7 +91,7 @@ export const mergeCodesTagFieldOptions = [
 				default: '',
 				required: true,
 				placeholder: 'e.g. {{firstname}}',
-				description: 'The full merge code including braces, e.g. {{firstname}}.',
+				description: 'The full merge code including braces, e.g. {{firstname}}',
 			},
 			{
 				displayName: 'Value',

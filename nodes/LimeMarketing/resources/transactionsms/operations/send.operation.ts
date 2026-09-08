@@ -40,7 +40,7 @@ export const properties: INodeProperties[] = [
 		required: true,
 		default: '',
 		placeholder: 'e.g. MyCompany',
-		description: 'The alphanumeric sender ID shown to the recipient (2–11 characters).',
+		description: 'The alphanumeric sender ID shown to the recipient (2–11 characters)',
 		displayOptions: {
 			show: {
 				resource: [TRANSACTIONAL_SMS_RESOURCE],
@@ -55,7 +55,7 @@ export const properties: INodeProperties[] = [
 		required: true,
 		default: '',
 		placeholder: 'e.g. +46701234567',
-		description: 'The recipient phone number in international format, starting with "+".',
+		description: 'The recipient phone number in international format, starting with "+"',
 		displayOptions: {
 			show: {
 				resource: [TRANSACTIONAL_SMS_RESOURCE],
@@ -90,7 +90,7 @@ export const properties: INodeProperties[] = [
 		typeOptions: { multipleValues: true },
 		placeholder: 'Add Merge Code',
 		default: {},
-		description: 'Merge codes and values to substitute into the SMS text.',
+		description: 'Merge codes and values to substitute into the SMS text',
 		displayOptions: {
 			show: {
 				resource: [TRANSACTIONAL_SMS_RESOURCE],
@@ -106,7 +106,7 @@ export const properties: INodeProperties[] = [
 		type: 'json',
 		required: true,
 		default: '{\n  "{{firstname}}": "John"\n}',
-		description: 'Object mapping each merge code (with braces) to its replacement value.',
+		description: 'Object mapping each merge code (with braces) to its replacement value',
 		typeOptions: {
 			alwaysOpenEditWindow: true,
 		},
@@ -138,7 +138,7 @@ export const properties: INodeProperties[] = [
 				typeOptions: { minValue: 0, maxValue: 168 },
 				default: null,
 				description:
-					'How long (in hours, 0–168) the provider should keep retrying delivery before giving up.',
+					'How long (in hours, 0–168) the provider should keep retrying delivery before giving up',
 			},
 			{
 				displayName: 'Max Parts',
@@ -146,7 +146,7 @@ export const properties: INodeProperties[] = [
 				type: 'number',
 				typeOptions: { minValue: 1 },
 				default: null,
-				description: 'Maximum number of SMS segments the message is allowed to split into.',
+				description: 'Maximum number of SMS segments the message is allowed to split into',
 			},
 			{
 				displayName: 'Scheduled Send Date',

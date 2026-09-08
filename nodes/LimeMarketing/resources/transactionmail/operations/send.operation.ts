@@ -73,12 +73,13 @@ export const properties: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Template',
+		displayName: 'Template Name or ID',
 		name: 'templateId',
 		type: 'options',
 		required: true,
 		default: '',
-		description: 'The Lime Marketing template to send',
+		description:
+			'The Lime Marketing template to send. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 		typeOptions: {
 			loadOptionsMethod: 'getTemplates',
 		},
@@ -257,7 +258,7 @@ export const properties: INodeProperties[] = [
 		typeOptions: { multipleValues: true },
 		placeholder: 'Add Merge Code',
 		default: {},
-		description: 'Merge codes and values to substitute into the content.',
+		description: 'Merge codes and values to substitute into the content',
 		displayOptions: {
 			show: {
 				resource: [TRANSACTIONAL_EMAIL_RESOURCE],
@@ -275,7 +276,7 @@ export const properties: INodeProperties[] = [
 		required: true,
 		default: '{\n  "{{mergecode}}": ""\n}',
 		description:
-			'Object mapping each merge code (with braces) to its replacement value. Example: {"{{mergecode}}": "value"}',
+			'Object mapping each merge code (with braces) to its replacement value. Example: {"{{mergecode}}": "value"}.',
 		typeOptions: {
 			alwaysOpenEditWindow: true,
 		},
