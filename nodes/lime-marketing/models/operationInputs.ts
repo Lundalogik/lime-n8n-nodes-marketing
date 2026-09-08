@@ -5,36 +5,36 @@
 // structures.
 
 export type TagListInput = {
-    tag?: { name: string; value?: string }[];
+	tag?: { name: string; value?: string }[];
 };
 
 export type AttachmentsInput = {
-    attachment?: {
-        binaryPropertyName: string;
-        fileNameOverride?: string;
-    }[];
+	attachment?: {
+		binaryPropertyName: string;
+		fileNameOverride?: string;
+	}[];
 };
 
 export type HeadersInput = {
-    header?: { name: string; value: string }[];
+	header?: { name: string; value: string }[];
 };
 
 export type AdditionalMailOptions = {
-    senderName?: string;
-    senderEmail?: string;
-    replyTo?: string;
-    scheduledSendDate?: string;
-    externalId?: string;
-    excludePublicationOptouts?: boolean;
-    excludeTotalOptouts?: boolean;
-    excludePreviousBounce?: boolean;
-    linkBaseUrl?: string;
-    includeEmailDataInWebhookPayload?: boolean;
-    headers?: HeadersInput;
+	senderName?: string;
+	senderEmail?: string;
+	replyTo?: string;
+	scheduledSendDate?: string;
+	externalId?: string;
+	excludePublicationOptouts?: boolean;
+	excludeTotalOptouts?: boolean;
+	excludePreviousBounce?: boolean;
+	linkBaseUrl?: string;
+	includeEmailDataInWebhookPayload?: boolean;
+	headers?: HeadersInput;
 };
 
 export type AdditionalSmsOptions = {
-    maxParts?: number | null;
-    deliveryTimeoutHours?: number | null;
-    scheduledSendDate?: string;
+	maxParts?: number | null;
+	deliveryTimeoutHours?: number | null;
+	scheduledSendDate?: string;
 };

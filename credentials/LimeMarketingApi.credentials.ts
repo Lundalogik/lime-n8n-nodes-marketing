@@ -1,10 +1,10 @@
 import {
-    ICredentialType,
-    INodeProperties,
-    IHttpRequestMethods,
-    IAuthenticate,
-    ICredentialTestRequest,
-    IAuthenticateRuleResponseSuccessBody,
+	ICredentialType,
+	INodeProperties,
+	IHttpRequestMethods,
+	IAuthenticate,
+	ICredentialTestRequest,
+	IAuthenticateRuleResponseSuccessBody,
 } from 'n8n-workflow';
 import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../nodes/lime-marketing/models';
 
@@ -27,66 +27,66 @@ import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../nodes/lime-marketing/model
  * @public
  */
 export class LimeMarketingApi implements ICredentialType {
-    name = LIME_MARKETING_API_CREDENTIAL_KEY;
-    displayName = 'Lime CRM Marketing API';
-    icon = 'file:assets/lime-crm.svg' as const;
-    properties: INodeProperties[] = [
-        {
-            displayName: 'Lime CRM Marketing API URL',
-            name: 'url',
-            type: 'string',
-            default: '',
-            placeholder: 'e.g. https://app.bwz.se/bedrock/CUSTOMERNAME/api/',
-            required: true,
-            description:
-                'The URL of your Lime Marketing instance, for example https://app.bwz.se/bedrock/CUSTOMERNAME/api/',
-        },
-        {
-            displayName: 'API Key',
-            name: 'apiKey',
-            type: 'string',
-            typeOptions: {
-                password: true,
-            },
-            default: '',
-            required: true,
-            description: 'The API key obtained from Lime Marketing',
-        },
-    ];
+	name = LIME_MARKETING_API_CREDENTIAL_KEY;
+	displayName = 'Lime CRM Marketing API';
+	icon = 'file:assets/lime-crm.svg' as const;
+	properties: INodeProperties[] = [
+		{
+			displayName: 'Lime CRM Marketing API URL',
+			name: 'url',
+			type: 'string',
+			default: '',
+			placeholder: 'e.g. https://app.bwz.se/bedrock/CUSTOMERNAME/api/',
+			required: true,
+			description:
+				'The URL of your Lime Marketing instance, for example https://app.bwz.se/bedrock/CUSTOMERNAME/api/',
+		},
+		{
+			displayName: 'API Key',
+			name: 'apiKey',
+			type: 'string',
+			typeOptions: {
+				password: true,
+			},
+			default: '',
+			required: true,
+			description: 'The API key obtained from Lime Marketing',
+		},
+	];
 
-    authenticate: IAuthenticate = {
-        type: 'generic',
-        properties: {
-            headers: {
-                apikey: '={{$credentials.apiKey}}',
-            },
-        },
-    };
+	authenticate: IAuthenticate = {
+		type: 'generic',
+		properties: {
+			headers: {
+				apikey: '={{$credentials.apiKey}}',
+			},
+		},
+	};
 
-    test: ICredentialTestRequest = {
-        request: {
-            baseURL: '={{$credentials?.url?.replace(new RegExp("/+$"), "")}}',
-            url: '/ping/version',
-            method: 'GET' as IHttpRequestMethods,
-            headers: {
-                apikey: '={{$credentials?.apiKey}}',
-                Accept: 'application/json',
-            },
-        },
-        // `responseSuccessBody` fails the test when body[key] === value. The
-        // real /ping/version returns a VersionModel with a `Version` field, so
-        // a missing `Version` (=== undefined) means we hit something other than
-        // the Lime Marketing API (e.g. a catch-all page) and the URL is wrong.
-        rules: [
-            {
-                type: 'responseSuccessBody',
-                properties: {
-                    key: 'Version',
-                    value: undefined,
-                    message:
-                        'The URL does not point to a Lime Marketing API. Check it matches https://app.bwz.se/bedrock/CUSTOMERNAME/api/.',
-                },
-            } as IAuthenticateRuleResponseSuccessBody,
-        ],
-    };
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: '={{$credentials?.url?.replace(new RegExp("/+$"), "")}}',
+			url: '/ping/version',
+			method: 'GET' as IHttpRequestMethods,
+			headers: {
+				apikey: '={{$credentials?.apiKey}}',
+				Accept: 'application/json',
+			},
+		},
+		// `responseSuccessBody` fails the test when body[key] === value. The
+		// real /ping/version returns a VersionModel with a `Version` field, so
+		// a missing `Version` (=== undefined) means we hit something other than
+		// the Lime Marketing API (e.g. a catch-all page) and the URL is wrong.
+		rules: [
+			{
+				type: 'responseSuccessBody',
+				properties: {
+					key: 'Version',
+					value: undefined,
+					message:
+						'The URL does not point to a Lime Marketing API. Check it matches https://app.bwz.se/bedrock/CUSTOMERNAME/api/.',
+				},
+			} as IAuthenticateRuleResponseSuccessBody,
+		],
+	};
 }
