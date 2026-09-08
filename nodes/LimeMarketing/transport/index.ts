@@ -1,8 +1,7 @@
 import { IAllExecuteFunctions, IHttpRequestOptions, NodeApiError } from 'n8n-workflow';
-import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../models';
+import { LIME_MARKETING_API_CREDENTIAL_KEY, LimeMarketingErrorBody } from '../models';
 import { getBaseUrl } from '../utils';
 import { SuccessResponse } from '../../response';
-import { LimeMarketingErrorBody } from '../models';
 
 const formatErrorDetails = (details: LimeMarketingErrorBody['ErrorDetails']): string =>
 	(details ?? [])
