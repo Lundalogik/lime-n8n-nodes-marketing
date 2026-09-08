@@ -7,76 +7,76 @@
 // `description` spreads at construction, breaking instantiation.)
 
 jest.mock('../../../nodes/lime-marketing/transport', () => ({
-    limeMarketingRequest: jest.fn(),
+	limeMarketingRequest: jest.fn(),
 }));
 
 import { NodeApiError } from 'n8n-workflow';
 import { LimeMarketing } from '../../../nodes/lime-marketing/LimeMarketing.node';
 import {
-    baselineSmsParams,
-    baselineEmailParams,
-    makeNodeExecuteContext,
-    transportMock,
+	baselineSmsParams,
+	baselineEmailParams,
+	makeNodeExecuteContext,
+	transportMock,
 } from './_helpers';
 
 const node = { name: 'Test', id: 't' } as never;
 
 beforeEach(() => {
-    transportMock.mockReset();
+	transportMock.mockReset();
 });
 
 describe('LimeMarketing execute — error output routing', () => {
-    it('routes a server-side SMS error to the error output', async () => {
-        const apiError = new NodeApiError(node, {
-            message: "The SMS sender 'Lime' is not a verified sender ID",
-        });
-        transportMock.mockRejectedValue(apiError);
+	it('routes a server-side SMS error to the error output', async () => {
+		const apiError = new NodeApiError(node, {
+			message: "The SMS sender 'Lime' is not a verified sender ID",
+		});
+		transportMock.mockRejectedValue(apiError);
 
-        const ctx = makeNodeExecuteContext({
-            ...baselineSmsParams,
-            resource: 'sms',
-            operation: 'send',
-        });
+		const ctx = makeNodeExecuteContext({
+			...baselineSmsParams,
+			resource: 'sms',
+			operation: 'send',
+		});
 
-        const out = await new LimeMarketing().execute.call(ctx);
+		const out = await new LimeMarketing().execute.call(ctx);
 
-        // The item carries the top-level `error` field n8n uses to route it
-        // to the error output, and json.error holds the API message.
-        expect(out[0][0].error).toBe(apiError);
-        expect(out[0][0].json.error).toBe(apiError.message);
-        expect(out[0][0].pairedItem).toEqual({ item: 0 });
-    });
+		// The item carries the top-level `error` field n8n uses to route it
+		// to the error output, and json.error holds the API message.
+		expect(out[0][0].error).toBe(apiError);
+		expect(out[0][0].json.error).toBe(apiError.message);
+		expect(out[0][0].pairedItem).toEqual({ item: 0 });
+	});
 
-    it('routes a server-side email error to the error output', async () => {
-        const apiError = new NodeApiError(node, {
-            message: 'The sendingdomain for the e-mail address is not valid',
-        });
-        transportMock.mockRejectedValue(apiError);
+	it('routes a server-side email error to the error output', async () => {
+		const apiError = new NodeApiError(node, {
+			message: 'The sendingdomain for the e-mail address is not valid',
+		});
+		transportMock.mockRejectedValue(apiError);
 
-        const ctx = makeNodeExecuteContext({
-            ...baselineEmailParams,
-            resource: 'email',
-            operation: 'send',
-        });
+		const ctx = makeNodeExecuteContext({
+			...baselineEmailParams,
+			resource: 'email',
+			operation: 'send',
+		});
 
-        const out = await new LimeMarketing().execute.call(ctx);
+		const out = await new LimeMarketing().execute.call(ctx);
 
-        expect(out[0][0].error).toBe(apiError);
-        expect(out[0][0].json.error).toBe(apiError.message);
-    });
+		expect(out[0][0].error).toBe(apiError);
+		expect(out[0][0].json.error).toBe(apiError.message);
+	});
 
-    it('leaves a successful send on the success output (no error field)', async () => {
-        transportMock.mockResolvedValue({ success: true, data: { Id: 1 } });
+	it('leaves a successful send on the success output (no error field)', async () => {
+		transportMock.mockResolvedValue({ success: true, data: { Id: 1 } });
 
-        const ctx = makeNodeExecuteContext({
-            ...baselineSmsParams,
-            resource: 'sms',
-            operation: 'send',
-        });
+		const ctx = makeNodeExecuteContext({
+			...baselineSmsParams,
+			resource: 'sms',
+			operation: 'send',
+		});
 
-        const out = await new LimeMarketing().execute.call(ctx);
+		const out = await new LimeMarketing().execute.call(ctx);
 
-        expect(out[0][0].error).toBeUndefined();
-        expect(out[0][0].json).toEqual({ success: true, data: { Id: 1 } });
-    });
+		expect(out[0][0].error).toBeUndefined();
+		expect(out[0][0].json).toEqual({ success: true, data: { Id: 1 } });
+	});
 });
