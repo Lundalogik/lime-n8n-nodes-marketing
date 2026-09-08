@@ -10,7 +10,6 @@ import { LIME_MARKETING_API_CREDENTIAL_KEY, AttachmentModel } from '../models';
  *   EmailRegexPattern = "^" + username + "@((\[ipv4\])|(([a-zA-Z0-9-_]+\.)*([a-zA-Z0-9-]+)\.[a-zA-Z0-9]{2,15}))$"
  */
 const LIME_MARKETING_EMAIL_REGEX =
-	// eslint-disable-next-line sonarjs/regex-complexity, sonarjs/concise-regex
 	/^([a-zA-Z0-9_\-.'+!#$%&?=^{}|~*]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z0-9\-_]+\.)*([a-zA-Z0-9-]+)\.[a-zA-Z0-9]{2,15}))$/;
 
 export function assertValidEmail(
