@@ -18,6 +18,7 @@ import { transactionMailFields, transactionMailOperations } from './resources/tr
 import { transactionSmsFields, transactionSmsOperations } from './resources/transactionsms';
 import { getTemplates, getTemplateMergeCodeMappingColumns } from './methods';
 import { getBaseUrl } from './utils';
+import { toNodeError } from '../errorHandling';
 
 // What an OperationExecutor returns: either a raw API response object, an
 // array of them, or already-wrapped n8n execution items (single or many).
@@ -146,7 +147,7 @@ export class LimeMarketing implements INodeType {
 				const responseData = await executor.call(this, i, baseURL);
 				returnData.push(...toExecutionItems(responseData, i));
 			} catch (error_) {
-				if (!this.continueOnFail()) throw error_;
+				if (!this.continueOnFail()) throw toNodeError(this.getNode(), error_);
 				const error = error_ instanceof Error ? error_ : new Error(String(error_));
 				returnData.push(buildErrorItem(error, i));
 			}
