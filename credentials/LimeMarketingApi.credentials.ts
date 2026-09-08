@@ -6,7 +6,7 @@ import {
 	ICredentialTestRequest,
 	IAuthenticateRuleResponseSuccessBody,
 } from 'n8n-workflow';
-import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../nodes/lime-marketing/models';
+import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../nodes/LimeMarketing/models';
 
 /**
  * Credential for the Lime Marketing REST API.

@@ -1,2 +1,2 @@
 export * from './response';
-export * from './lime-marketing';
+export * from './LimeMarketing';

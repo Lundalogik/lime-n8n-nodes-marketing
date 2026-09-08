@@ -6,12 +6,12 @@
 // (Mocking the resource barrels would also drop the *Fields the node's
 // `description` spreads at construction, breaking instantiation.)
 
-jest.mock('../../../nodes/lime-marketing/transport', () => ({
+jest.mock('../../../nodes/LimeMarketing/transport', () => ({
 	limeMarketingRequest: jest.fn(),
 }));
 
 import { NodeApiError } from 'n8n-workflow';
-import { LimeMarketing } from '../../../nodes/lime-marketing/LimeMarketing.node';
+import { LimeMarketing } from '../../../nodes/LimeMarketing/LimeMarketing.node';
 import {
 	baselineSmsParams,
 	baselineEmailParams,

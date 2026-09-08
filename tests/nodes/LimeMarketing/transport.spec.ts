@@ -5,13 +5,13 @@
 // message from the Lime body at `error.context.data` and rethrow in place.
 
 import { IAllExecuteFunctions, NodeApiError } from 'n8n-workflow';
-import { limeMarketingRequest } from '../../../nodes/lime-marketing/transport';
+import { limeMarketingRequest } from '../../../nodes/LimeMarketing/transport';
 
-jest.mock('../../../nodes/lime-marketing/utils', () => ({
+jest.mock('../../../nodes/LimeMarketing/utils', () => ({
 	getBaseUrl: jest.fn().mockResolvedValue('https://api.example.com'),
 }));
 
-import { getBaseUrl } from '../../../nodes/lime-marketing/utils';
+import { getBaseUrl } from '../../../nodes/LimeMarketing/utils';
 
 const mockedGetBaseUrl = getBaseUrl as jest.MockedFunction<typeof getBaseUrl>;
 
