@@ -12,7 +12,7 @@
 // the mocked version automatically.
 
 import { IExecuteFunctions, ILoadOptionsFunctions, INodeExecutionData } from 'n8n-workflow';
-import { limeMarketingRequest } from '../../../nodes/lime-marketing/transport';
+import { limeMarketingRequest } from '../../../nodes/LimeMarketing/transport';
 
 // ── Baseline fixtures ────────────────────────────────────────────────────────
 

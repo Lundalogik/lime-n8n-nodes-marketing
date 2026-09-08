@@ -9,7 +9,7 @@ import {
 	assertValidSmsFromNumber,
 	buildAttachment,
 	getBaseUrl,
-} from '../../../nodes/lime-marketing/utils';
+} from '../../../nodes/LimeMarketing/utils';
 import { makeBinaryContext, makeCredentialsContext } from './_helpers';
 
 describe('assertValidEmail', () => {

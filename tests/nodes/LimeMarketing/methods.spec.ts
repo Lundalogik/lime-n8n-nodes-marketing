@@ -4,15 +4,15 @@
 // transport so we can stub API responses and inspect the handlers' shaping
 // of the returned fields.
 
-jest.mock('../../../nodes/lime-marketing/transport', () => ({
+jest.mock('../../../nodes/LimeMarketing/transport', () => ({
 	limeMarketingRequest: jest.fn(),
 }));
 
-import { getTemplates } from '../../../nodes/lime-marketing/methods/getTemplates';
+import { getTemplates } from '../../../nodes/LimeMarketing/methods/getTemplates';
 import {
 	getTemplateMergeCodeMappingColumns,
 	isMergeCodePlaceholder,
-} from '../../../nodes/lime-marketing/methods/getTemplateMergeCodeMappingColumns';
+} from '../../../nodes/LimeMarketing/methods/getTemplateMergeCodeMappingColumns';
 import { makeLoadOptionsContext, transportMock } from './_helpers';
 
 beforeEach(() => {

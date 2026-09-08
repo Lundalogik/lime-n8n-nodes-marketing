@@ -2,13 +2,13 @@
 // assert what URL the operation hits and what request body it builds for
 // each combination of UI inputs.
 
-jest.mock('../../../nodes/lime-marketing/transport', () => ({
+jest.mock('../../../nodes/LimeMarketing/transport', () => ({
 	limeMarketingRequest: jest.fn().mockResolvedValue({}),
 	getBaseUrl: jest.fn(),
 }));
 
 import { NodeOperationError } from 'n8n-workflow';
-import { execute } from '../../../nodes/lime-marketing/resources/transactionsms/operations/send.operation';
+import { execute } from '../../../nodes/LimeMarketing/resources/transactionsms/operations/send.operation';
 import {
 	baselineSmsParams,
 	lastCallBody,
