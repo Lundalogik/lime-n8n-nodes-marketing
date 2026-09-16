@@ -73,13 +73,14 @@ export const properties: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Template Name or ID',
+		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+		displayName: 'Template',
 		name: 'templateId',
 		type: 'options',
 		required: true,
 		default: '',
-		description:
-			'The Lime Marketing template to send. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+		// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-dynamic-options
+		description: 'The Lime Marketing template to send',
 		typeOptions: {
 			loadOptionsMethod: 'getTemplates',
 		},
