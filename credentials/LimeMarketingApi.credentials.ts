@@ -24,11 +24,17 @@ import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../nodes/LimeMarketing/models
  * Marketing `VersionModel` (it carries a `Version` field). Without that
  * body check the test would pass for any host that answers 2xx.
  *
+ * ## Related Documentation
+ * - Lime CRM Marketing API credential setup: https://platform.docs.lime-crm.com/en/latest/workflows-and-integrations/credential-setup/#lime-crm-marketing-api
+ * - n8n Credentials Guide: https://docs.n8n.io/integrations/credentials/
+ *
  * @public
  */
 export class LimeMarketingApi implements ICredentialType {
 	name = LIME_MARKETING_API_CREDENTIAL_KEY;
 	displayName = 'Lime CRM Marketing API';
+	documentationUrl =
+		'https://platform.docs.lime-crm.com/en/latest/workflows-and-integrations/credential-setup/#lime-crm-marketing-api';
 	icon = 'file:assets/lime-crm.svg' as const;
 	properties: INodeProperties[] = [
 		{
