@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Lundalogik/lime-n8n-nodes-marketing/compare/v1.0.0...v1.0.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* **credentials:** point documentationUrl at the credential setup page ([ccc23d0](https://github.com/Lundalogik/lime-n8n-nodes-marketing/commit/ccc23d04ad60a9a5102eac5c37e5a8569cf0d313))
+
 # 1.0.0 (2026-09-24)
 
 
