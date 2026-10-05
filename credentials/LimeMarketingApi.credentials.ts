@@ -35,7 +35,7 @@ export class LimeMarketingApi implements ICredentialType {
 	displayName = 'Lime CRM Marketing API';
 	documentationUrl =
 		'https://platform.docs.lime-crm.com/en/latest/workflows-and-integrations/credential-setup/#lime-crm-marketing-api';
-	icon = 'file:assets/lime-crm.svg' as const;
+	icon = 'file:assets/lime-marketing.svg' as const;
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Lime CRM Marketing API URL',
