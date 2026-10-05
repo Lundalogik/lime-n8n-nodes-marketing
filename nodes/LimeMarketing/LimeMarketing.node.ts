@@ -83,7 +83,7 @@ export class LimeMarketing implements INodeType {
 		name: 'limeMarketing',
 		// Single-file icon on purpose: it carries its own background and renders the same on both themes.
 		// eslint-disable-next-line @n8n/community-nodes/icon-prefer-themed-variants
-		icon: 'file:assets/lime-crm.svg',
+		icon: 'file:assets/lime-marketing.svg',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
