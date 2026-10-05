@@ -25,7 +25,8 @@ import { LIME_MARKETING_API_CREDENTIAL_KEY } from '../nodes/LimeMarketing/models
  * body check the test would pass for any host that answers 2xx.
  *
  * ## Related Documentation
- * - Lime CRM Marketing API credential setup: https://platform.docs.lime-crm.com/en/latest/workflows-and-integrations/credential-setup/#lime-crm-marketing-api
+ * - Lime CRM Marketing API credential setup:
+ * https://platform.docs.lime-crm.com/en/latest/workflows-and-integrations/credential-setup/#lime-crm-marketing-api
  * - n8n Credentials Guide: https://docs.n8n.io/integrations/credentials/
  *
  * @public
