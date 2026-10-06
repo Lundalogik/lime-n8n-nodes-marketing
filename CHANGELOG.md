@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Lundalogik/lime-n8n-nodes-marketing/compare/v1.0.1...v1.1.0) (2026-10-06)
+
+
+### Features
+
+* trigger release ([a87816d](https://github.com/Lundalogik/lime-n8n-nodes-marketing/commit/a87816d2782ecf672a0e0d243f857dc5e5deedc1))
+
 ## [1.0.1](https://github.com/Lundalogik/lime-n8n-nodes-marketing/compare/v1.0.0...v1.0.1) (2026-09-30)
 
 
